@@ -12,20 +12,17 @@ namespace Lab2.Controllers
         public ActionResult Index()
         {
 
-            string[] product = new string[3];
-            product[0] = "Laptop";
-            product[1] = "Tablet";
-            product[2] = "Desktop";
-            ViewData["product"] = product;
+            string[] products = { "Laptop", "Tablet", "Desktop" };
+
+            ViewData["products"] = products;
             return View();
         }
-        public string Details(string product)
+        public ActionResult Details(string product)
         {
 
+            ViewBag.Message = "You have selected " + product;
 
-
-            string message = "You have selected the product" + product;
-            return message;
+            return View();
         }
 
     }

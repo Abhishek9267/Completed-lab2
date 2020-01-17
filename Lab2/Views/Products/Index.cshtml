@@ -2,11 +2,16 @@
 @{
     ViewBag.Title = "Index";
 
-    foreach (string product in ViewBag.product)
-    {
-    <li>@Html.ActionLink(product, "Details", "Products")</li>
-    }
-    }
 
-<h2>Index</h2>
+}
+
+<h2>Products</h2>
+   @foreach (string item in ViewBag.products)
+    {
+    @*<li><a href="/products/details/{@item}">@item</a></h2></li>*@
+  <li>
+      <a href="@Url.Action("Details", "Products",new { product =@item})">@item</a>
+  </li>
+
+    }
 
